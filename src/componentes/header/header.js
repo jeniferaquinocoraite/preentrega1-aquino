@@ -1,6 +1,7 @@
-import React from 'react'
-import logo from '../../assets/logo.png'
+import React from 'react';
+import logo from '../../assets/logo.png';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 export const NavBar = (props) => {
     return (
@@ -24,7 +25,7 @@ const style = {
   conteiner:{
     display: 'flex',
     alingItems: 'center',
-  width: '100%',
+  width: '80%',
   justifyContent: 'space-between',
   height: 100, 
   margin:20,
