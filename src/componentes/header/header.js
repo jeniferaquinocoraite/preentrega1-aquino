@@ -1,9 +1,14 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-
+import { CartWidget } from '../CartWidget/CartWidget';
 export const NavBar = (props) => {
+  const secciones =[
+  {nombre:"Quienes somos", id:0, ruta:"#"},
+  {nombre: "Nenas", id:1, ruta:"#"},
+  {nombre:"Varones", id:2, ruta:"#"},
+  {nombre:"Ofertas exclusivas", id:3, ruta:"#"},
+]
     return (
 
         <header style={style.conteiner}>
@@ -11,13 +16,15 @@ export const NavBar = (props) => {
         <h1 style = {style.titulo}>Mi Sol</h1>
         <h2>Hola {props.nombredeusuario}</h2>
         <nav>
-          <a style = {style.secciones}href="">Quienes somos</a>
-          <a style = {style.secciones} href="">Niñas</a>
-          <a style = {style.secciones}href="">Niños</a>
-          <a style = {style.secciones}href="">Ofertas exclusivas</a>
+          {
+          secciones.map ((categoria)=>{ 
+            return <a key={categoria.id} style = {style.secciones}href={categoria.ruta}>{categoria.nombre}</a>
+          })         
+          }
+       
         </nav>
-      <ShoppingCartIcon color ="primary" />
-      </header>
+      <CartWidget/>
+        </header>
     );
 };
 export default NavBar 
