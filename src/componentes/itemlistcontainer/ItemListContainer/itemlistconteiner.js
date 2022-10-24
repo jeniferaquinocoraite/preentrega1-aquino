@@ -1,7 +1,7 @@
 import React,  {useEffect, useState} from 'react';
-import { ItemCount } from '../itemcount/itemcount';
+
 const productos = [{id : 1,
-    img: "../imagenes/nenacatalogo/ropa2.png",
+    img: "../../assets/nenas/ropa2.png",
     nombre: "Vestido verano",
     talle: 1,
     precio:500 
@@ -62,7 +62,7 @@ const productos = [{id : 1,
     }
     ];
 
-    const obtenerProductos = new Promise ((resolve) => { 
+    const obtenerProductos = new Promise ((resolve, reject) => { 
         
         setTimeout (()=>{
         resolve (productos);
@@ -72,33 +72,33 @@ const productos = [{id : 1,
     })
    
 
-
-
-
-
-
-  
-
-export const  Itemlistconteiner =  ({greetting, mensaje}) =>{
+export const  Itemlistconteiner =  () =>{
   
   const [productos, setProductos] =useState ([]);
   useEffect (()=> {
+    
     obtenerProductos
     .then ((data)=>{
         setProductos (data);
     })
     .catch ((error)=>{
-        console.log ("salio todo mal");
+        console.log ("Hubo un error");
+    })
+    .finally (()=> {
+        return (<h1>C</h1>)
     })
   }, [] )
+
+  
   return (
 <>
 
+ 
 
-<h1>Hola</h1>
 {productos.map ((producto)=> 
 
-<h2 key={producto.id}>{producto.nombre} {producto.precio}</h2>)}
+<h2 key={producto.id}>{producto.nombre} {producto.precio} {producto.img} </h2>,
+)}
 
 
 

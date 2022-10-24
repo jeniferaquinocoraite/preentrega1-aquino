@@ -1,16 +1,22 @@
 import React from "react";
+import {BrowserRouter} from 'react-router-dom'
 import './App.css';
 import  { NavBar } from './componentes/header/header';
-import {Itemlistconteiner} from './componentes/itemlistcontainer/itemlistconteiner';
+import {Itemlistconteiner} from './componentes/itemlistcontainer/ItemListContainer/itemlistconteiner';
 const App = () => { 
  
   const nombre = "Jenifer"
-  const mensaje ="Bienvenido a Mi Sol Online"
+
+  
+
+
+
+  
 return (
 <>
 <NavBar nombredeusuario = {nombre} >  
-</NavBar>
-<Itemlistconteiner greetting={mensaje}  />
+</NavBar> 
+<Itemlistconteiner />
 </>
 
   );

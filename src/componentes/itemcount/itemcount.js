@@ -16,7 +16,6 @@ export const ItemCount = ({ stock, initial, onAdd}) => {
     }
   };
   
-
   return (
     <div>
       <button style = {styles.boton} onClick={subtract}>-</button>
@@ -31,4 +30,4 @@ export const ItemCount = ({ stock, initial, onAdd}) => {
 const styles = {boton: {    
   color: orange, },
 
-agregar:{fontSize: 50, color: orange,}}
+agregar:{fontSize: 20, color: orange,}}
