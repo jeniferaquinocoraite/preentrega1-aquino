@@ -1,27 +1,63 @@
-import React from 'react';
-const Item = ({ producto }) => {
-  const { id, img, nombre, talle, precio, stock, hashtags } = producto;
+import React from "react";
+import Card from "@mui/material/Card";
+import { Link } from "react-router-dom";
+import {
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  CardActionArea,
+  CardActions,
+} from "@mui/material";
 
+ const Item = ({ productos }) => {
   return (
-    <div className="card" style={{ width: '20rem', margin: '.5rem' }}>
-      <img src={img} className="card-img-top" alt={nombre} />
-      <div className="card-body">
-        <p className="card-text">{nombre}</p>
-        <p className="card-text">{talle}</p>
-        <p className="card-text">${precio}</p>
-        <p className="card-text">stock: {stock}</p>
-        {hashtags?.map((frase, index) => (
-          <p className="card-text" key={index}>
-            {frase}
-          </p>
-        ))}
-        {/* safe navigation operator, en JS Optional chaining o encadenamiento opcional ,
-         les dejo el link de la docu: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Optional_chaining */}
-      </div>
-
-      <button className="btn btn-primary">Ver más</button>
-    </div>
+    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={productos.img}
+          alt={productos.nombre}
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            style={styles.title}
+          >
+            {productos.nombre}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            ${productos.precio}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Link to = {'/productos/'+ productos.nombre}>
+        <Button size="small" color="primary">
+          Ver Detalles
+        </Button>
+        </Link>
+      </CardActions>
+    </Card>
   );
 };
 
+const styles = {
+  container: {
+    width: window.innerHeight > 900 ? "25%" : "90%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 20,
+    backgroundColor: "rgba(249, 220, 92, 0.3)",
+  },
+  title: {
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    height: 100,
+  },
+};
 export default Item;

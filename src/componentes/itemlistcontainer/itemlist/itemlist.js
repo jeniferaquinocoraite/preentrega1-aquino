@@ -1,7 +1,21 @@
 import React from 'react'
-import { Itemlistconteiner } from '../ItemListContainer/itemlistconteiner'
-export const Itemlist = (props) => {
-  return ()
-}
+import Item from '../item/item';
+const ItemList = ({ productos }) => {
 
-export default itemlist
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
+      {productos.map((productos) => (
+        <Item key={productos.id} productos={productos} />
+      ))}
+    </div>
+  );
+};
+
+export default ItemList;

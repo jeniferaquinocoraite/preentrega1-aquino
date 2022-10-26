@@ -7,16 +7,23 @@ export const  ItemListconteiner =  () =>{
   
   const [productos, setProductos] =useState ([]);
   const [loading, setLoading] = useState(true);
-  const { idCategoria } = useParams()
+  const { idCategoria } = useParams();
 
   useEffect(() => {
-    data
-      .then((res) => setProductos(res))
-      .catch(() => ('hubo un error, intente mas tarde'))
-      .finally(() => setLoading(false));
-  }, []);
-  const filtrado   =  data.filter (productos => productos.categoria === idCategoria);
-
+    if( idCategoria === undefined ){
+    //traigo todos los productos
+        data
+          .then((res) => setProductos(res))
+          .catch(() => ('hubo un error, intente mas tarde'))
+          .finally(() => setLoading(false));
+    }else{
+    //traigo los filtrados
+        data
+          .then((res) => setProductos(res.filter(productos => productos.categoria === idCategoria)))
+          .catch(() => ('hubo un error, intente mas tarde'))
+          .finally(() => setLoading(false));
+    }
+      }, [idCategoria]);
   return (
     <div>
       {loading ? (
