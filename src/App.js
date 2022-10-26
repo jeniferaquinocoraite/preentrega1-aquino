@@ -1,22 +1,29 @@
 import React from "react";
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';  
+import ItemDetailConteiner from "./componentes/itemDetailConteiner/itemaDetailContainer";
 import  { NavBar } from './componentes/header/header';
-import {Itemlistconteiner} from './componentes/itemlistcontainer/ItemListContainer/itemlistconteiner';
+import {ItemListconteiner} from './componentes/itemlistcontainer/ItemListContainer/itemlistconteiner';
+import ItemDetail from "./componentes/itemDetail/itemDatail";
 const App = () => { 
  
   const nombre = "Jenifer"
-
-  
-
-
-
   
 return (
 <>
+<BrowserRouter>
 <NavBar nombredeusuario = {nombre} >  
 </NavBar> 
-<Itemlistconteiner />
+<Routes>
+<Route path ="/" element={<ItemListconteiner /> }/>
+<Route path ="/categoria/:idCategoria"  element={<ItemListconteiner /> }/>
+<Route path ="/productos/:id" element= { <ItemDetailConteiner/>}/>
+
+
+
+</Routes>
+</BrowserRouter>
 </>
 
   );
