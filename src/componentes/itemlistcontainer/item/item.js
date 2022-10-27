@@ -35,7 +35,7 @@ import {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to = {'/productos/'+ productos.nombre}>
+        <Link to = {'/productos/'+ productos.id}>
         <Button size="small" color="primary">
           Ver Detalles
         </Button>

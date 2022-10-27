@@ -16,7 +16,7 @@ const productos = [{id : 1,
 
     },
     {id: 3,
-    nombre: "Vestido floral claro",
+    nombre  : "Vestido floral claro",
     img: "../imagenes/nenacatalogo/ropa-.png",
     talle: 2,
     precio:700,

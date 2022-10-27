@@ -1,32 +1,34 @@
-import { Link } from '@mui/material';
+/*import { Link } from '@mui/material';*/
 import React from 'react';
 import logo from '../../assets/logo.png';
 import { CartWidget } from '../CartWidget/CartWidget';
-export const NavBar = (props) => {
-  const secciones =[
-  {nombre:"Quienes somos", id:0, ruta:"#"},
-  {nombre: "Nenas", id:1, ruta:"#"},
-  {nombre:"Varones", id:2, ruta:"#"},
-  {nombre:"Ofertas exclusivas", id:3, ruta:"#"},
+import { Link  } from 'react-router-dom'; 
+export const NavBar = () => {
+  const categoria =[
+  {nombre:"verano", id:0, ruta:"/categoria/verano"},
+  {nombre:"invierno", id:1, ruta:"/categoria/invierno"},
+ 
 ];
     return (
       
 
         <header style={style.conteiner}>
-        <h2>Hola {props.nombredeusuario}</h2>
-
+<Link to="/">
             <img style= {style.imagenes} src={logo} alt='tiendamisol'/>
+            </Link>
         <h1 style = {style.titulo}>Mi Sol</h1>
         <nav>
           {
-          secciones.map ((categoria)=>{ 
-            return <a key={categoria.id} style = {style.secciones}href={categoria.ruta}>{categoria.nombre}</a>
-          })         
+          categoria.map ((categorias)=>{ 
+            return <Link key={categorias.id} style = {style.categoria} to={categorias.ruta}>{categorias.nombre}</Link>
+          })        
           }
        
         </nav>
-      <CartWidget/>
-  
+        <Link to ="/cart">
+      <CartWidget />
+      </Link>
+
         </header>
     );
 };
@@ -44,7 +46,7 @@ imagenes: {
   width: 200,
 height: 100,
 },
-secciones: {  margin: 20,
+categoria: {  margin: 20,
     fontSize: 20,   
     color: 'orange',
 },
